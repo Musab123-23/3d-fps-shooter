@@ -47,3 +47,4 @@ No license has been specified yet.
 ---
 
 **Developed with Godot Engine.**
+**Credits to Sop Dev for the files and code**
