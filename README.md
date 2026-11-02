@@ -27,6 +27,7 @@ This repository contains the game's source code, scenes, scripts, assets, and pr
 ## 📦 Downloads
 
 Downloadable builds for supported platforms will be published in the repository's **Releases** section.
+MacOS and Windows may have a safety warning. Please check with your administrator to resolve this issue (reasons for this issue are stated elsewhere in this repository.
 
 ## 🌐 GX.games
 
