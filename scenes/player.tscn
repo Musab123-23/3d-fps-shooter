@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvrv1ki7tk071"]
+
+[ext_resource type="Script" uid="uid://cfq82l7jta3ce" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://clfifj30iqtl" path="res://scenes/gun.tscn" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://chvlsag0owhkm" path="res://assets/Sprites/crosshair.png" id="3_qhqgy"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u8vuu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g2els"]
+font_size = 64
+font_color = Color(0.9906, 0.990365, 0.998265, 1)
+outline_size = 16
+outline_color = Color(0.00981169, 0.00981169, 0.00981169, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qhqgy"]
+font_size = 64
+font_color = Color(0.835686, 0, 0.00506942, 1)
+outline_size = 16
+outline_color = Color(0.00981169, 0.00981169, 0.00981169, 1)
+
+[node name="player" type="CharacterBody3D" groups=["player"]]
+script = ExtResource("1_3vyb7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_u8vuu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3vyb7")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+current = true
+
+[node name="gun" parent="head/Camera3D" instance=ExtResource("2_g2els")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.439, -0.364, -0.771)
+
+[node name="Label" type="Label" parent="head/Camera3D"]
+offset_left = 3.0
+offset_top = 903.0
+offset_right = 377.0
+offset_bottom = 1064.0
+text = "40 / 40"
+label_settings = SubResource("LabelSettings_g2els")
+
+[node name="Label2" type="Label" parent="head/Camera3D"]
+offset_left = 10.0
+offset_top = 981.0
+offset_right = 384.0
+offset_bottom = 1142.0
+text = "3 / 3"
+label_settings = SubResource("LabelSettings_qhqgy")
+
+[node name="TextureRect" type="TextureRect" parent="head/Camera3D"]
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 1024.0
+offset_bottom = 604.0
+texture = ExtResource("3_qhqgy")
